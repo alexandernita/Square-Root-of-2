@@ -4,9 +4,9 @@ Three root finding algorithms to compute the square root of 2, the bisection met
 
 (1) The **bisection algorithm** is based on the Intermediate Value Theorem from calculus, and requires inputting the endpoints $a$ and $b$ of the compact interval $[a,b]$ over which $g(x)=x^2-2$, in this case, is continuous (automatic, since $g$ is a polynomial) and has opposite signs at $a$ and at $b$.  For this $g(x)$ the interval $[1,2]$ works because $g(1)=-1<0<2=g(2)$.
 
-(2) The **fixed point method** requires that $g([a,b])\subset [a,b]$ in addition to $g$'s continuity; if also $\|g'\|_\infty<1$ on $[a,b]$, then the fixed point $x=p$, satisfying $g(p)=p$, is unique.  Thus, in addition to $[a,b]$, we need $g\in C([a,b])$ satisfying $g([a,b])\subset [a,b]$ and ideally $\|g'\|_\infty<1$.   
+(2) The **fixed point method** requires that $g([a,b])\subset [a,b]$ in addition to $g$'s continuity; if also $\|g'\|_{\infty}<1$ on $[a,b]$, then the fixed point $x=p$, satisfying $g(p)=p$, is unique.  Thus, in addition to $[a,b]$, we need $g\in C([a,b])$ satisfying $g([a,b])\subset [a,b]$ and ideally $\|g'\|_\infty<1$.   
 
-Since $\sqrt(2)$ is by definition a root of 
+Since $\sqrt{2}$ is by definition a root of 
                $$p(x) = x^2-2$$
  we'll work with the associated fixed point function
                $$g(x) = x-p(x) = x-x^2+2 = -(x-2)(x+1)$$
@@ -32,7 +32,7 @@ $$g'(-1) = 3,\\ g'(2.25) = -3.5$$
  A similar problem occurs with $g(x) = 2/x$ on $[1,2]$.
 
  The solution is the to use the following:
-            \[g : [1,2] --> [\sqrt(2), 3/2] \subset [1,2]\\
+            \[g : [1,2] --> [\sqrt{2}, 3/2] \subset [1,2]\\
             g(x) = (x+2/x)/2\]
  on the interval $[1,2]$.  $g'(x) = (1-2/x^2)/2$, and we can find its max and min
  on $[1,2]$ using Calc 1 optimization: $g''(x) = 2/x^3$, so $g'$ is increasing,
