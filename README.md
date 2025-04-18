@@ -7,15 +7,17 @@ Three root finding algorithms to compute the square root of 2, the bisection met
 (2) The **fixed point method** requires that $g([a,b])\subset [a,b]$ over and above $g$'s continuity on $[a,b]$. If also $\sup |g'|<1$ on $[a,b]$, then the fixed point $x=p$, satisfying $g(p)=p$, is unique.  Thus, in addition to $[a,b]$, we need $g\in C([a,b])$ satisfying $g([a,b])\subset [a,b]$, and ideally $\sup |g'|<1$.   
 
 Since $\sqrt{2}$ is by definition a root of 
-```math
+$$
 p(x) = x^2-2
-```math
+$$
  we'll work with the associated fixed point function
-$$g(x) = x-p(x) = x-x^2+2 = -(x-2)(x+1)$$
+$$
+g(x) = x-p(x) = x-x^2+2 = -(x-2)(x+1)
+$$
  We're not interested in the roots of g, but in the FIXED-POINT of g,
-```math
+$$
 g(p) = p
-```math
+$$
  But note, $g(0) = 2$ and $g(2) = 0$, and g is continuous, so by the IVT it must
  hit every y-value between 0 and 2, and this must happen in the interval $[0,2]$.
  So since $0<\sqrt{2}<2$, it'll hit this value somewhere, and this is the fixed
