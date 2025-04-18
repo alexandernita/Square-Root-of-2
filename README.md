@@ -14,7 +14,7 @@ Since $\sqrt(2)$ is by definition a root of
               $$g(p) = p$$
  But note, $g(0) = 2$ and $g(2) = 0$, and g is continuous, so by the IVT it must
  hit every y-value between 0 and 2, and this must happen in the interval $[0,2]$.
- So since $0<\sqrt(2)<2$, it'll hit this value somewhere, and this is the fixed
+ So since $0<\sqrt{2}<2$, it'll hit this value somewhere, and this is the fixed
  point.
 
  Consider also the Banach Fixed-Point Theorem:  The vertex of the 
