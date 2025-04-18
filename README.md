@@ -32,8 +32,8 @@ $$g'(-1) = 3,\\ g'(2.25) = -3.5$$
  A similar problem occurs with $g(x) = 2/x$ on $[1,2]$.
 
  The solution is the to use the following:
-            \(g : [1,2] --> [\sqrt(2), 3/2] \subset [1,2]\\
-            g(x) = (x+2/x)/2\)
+            \[g : [1,2] --> [\sqrt(2), 3/2] \subset [1,2]\\
+            g(x) = (x+2/x)/2\]
  on the interval $[1,2]$.  $g'(x) = (1-2/x^2)/2$, and we can find its max and min
  on $[1,2]$ using Calc 1 optimization: $g''(x) = 2/x^3$, so $g'$ is increasing,
  and therefore has its max and min at the endpoints:  $g'(1) = -1/2$,
