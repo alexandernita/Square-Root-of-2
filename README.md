@@ -4,11 +4,28 @@ Three root finding algorithms to compute the square root of 2, the bisection met
 
 ## The Bisection Algorighm
 
+### The Mathematical Basis
 The **bisection algorithm** is based on the Intermediate Value Theorem (IVT) from calculus, 
 
 * **IVT:** If $f\in C([a,b])$, then every intermediate $y$-value $k$ between $f(a)$ and $f(b)$ is achieved: there exists a solution $x=c\in (a,b)$ of the equation $f(x)=k$.
 
-and requires inputting the endpoints $a$ and $b$ of the compact interval $[a,b]$ over which $g(x)=x^2-2$, in this case, is continuous (automatic, since $g$ is a polynomial) and has opposite signs at $a$ and at $b$.  For this $g(x)$ the interval $[1,2]$ works because $g(1)=-1<0<2=g(2)$.  
+To use this theorem, we must choose a function $f$ which is continuous on a compact interval $[a,b]$ containing $x=\sqrt{2}$, the solution to $f(x)=0$.  From the definition of $\sqrt{2}$ we know $(\sqrt{2})^2=2\ \Longleftrightarrow\ (\sqrt{2})^2-2=0$, which demonstrates that the polynomial $f(x)=x^2-2$ has $x=\sqrt{2}$ as such a solution. Lastly, we need $[a,b]$ with $f(a)<0<f(b)$ or $f(a)>0>f(b)$.  Clearly $[1,2]$ serves this purpose.  
+
+### The Algorithm
+* **Input:**  $f(x)=x^2-2$, $a=1$ and $b=2$.
+
+    1. **Set error, tolerance, and counter:** $0<e=$ error size, $N=$ number of iterations, $n=0$ counter initial value.
+    2. **Set initial values, and their midpoint bisector:** $a_1=a$, $b_1=b$ and $c_1=(a_1+b_1)/2$.
+    3. **Test $c_1$** to make sure we haven't accidentally hit upon the solution.
+        a. If $f(c_1)=0$, then $x=c_1$ is our solution. We are done. (Very unlikely, as $\sqrt{2}$ is irrational, but good to check generally).
+        b. If $f(c_1)\neq 0$, then set $n=n+1$ and proceed to the next step.  
+    4. **Test for the sign of $f(c_1)$:** Neither $f(a_1)$, $f(b_1)$ nor $f(c_1)$ equal $0$. 
+        a. If $f(c_1)f(a_1)<0$, then the solution lies in $(a_1,c_1)$.  Therefore set 
+            * $a_2=a_1$, $b_2=c_1$, $c_2=\frac{a_2+b_2}{2}$.
+            * Repeat steps 3 and 4.
+        b. If $f(c_1)f(a_1)>0$, then the solution lies in $(c_1,b_1)$.  Therefore set 
+            * $a_2=c_1$, $b_2=b_1$, $c_2=\frac{a_2+b_2}{2}$.
+            * Repeat steps 3 and 4.
 
 ## The Fixed Point Method
 
