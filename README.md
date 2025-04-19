@@ -52,11 +52,11 @@ If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contracti
 
 $p_0\in [a,b]$
 
-and then repeatedly *plugging back in*, 
+and then *plugging $p_n$ back into $g$* to get the next term,
 
 $p_{n+1}=g(p_n)$
 
-The MVT shows convergence $p_n\to p$ to the unique fixed point of $g$.  The algorithm is the essence of simplicity, but depends heavily on the choice of contraction $g$.  If $g$ is not a contraction, the sequence $(p_n)_{n\in \mathbb{N}}$ may not converge, or may converge to a non fixed point. 
+The MVT shows convergence $p_n\to p$ to the unique fixed point of $g$.  The algorithm is the essence of simplicity, but depends heavily on the choice of contraction $g$.  If $g$ is not a contraction, the sequence $(p_n)_{n\in \mathbb{N}}$ may not converge.
 
 #### Test Case \#1
 
@@ -72,7 +72,7 @@ A similar problem occurs with $g(x) = 2/x$ on $[1,2]$. (Exercise!)
 
 #### Test Case \#3: the Babylonian Method
 
-The solution is the to use the **Babylonian method**:  Let $g\in C([1,2])$ be given by $g(x) = (x+2/x)/2$, which satisfies $g([1,2])=[\sqrt{2}, 3/2] \subseteq [1,2]$, so $g$ has a fixed point. Moreover, this fixed point is $\sqrt{2}$ since $p=g(p)$ means $p=(p+2/p)/2$, which simplifies to $p^2=2$. This can also be deduced form the Banach Fixed Point Theorem:  $g'(x) = (1-2/x^2)/2$, and we can find its max and min on $[1,2]$ using calculus optimization: $g''(x) = 2/x^3$, so $g'$ is increasing, and therefore has its max and min at the endpoints:  $g'(1) = -1/2$, $g'(2) = 1/4$.  Therefore $|g'(x)| \leq 1/2 < 1$.  
+The solution the **Babylonian method**, which uses $g\in C([1,2])$ given by $g(x) = (x+2/x)/2$: this function satisfies $g([1,2])=[\sqrt{2}, 3/2] \subseteq [1,2]$, showing that it has a fixed point, and this fixed point is $\sqrt{2}$ since $p=g(p)$ means $p=(p+2/p)/2$, which simplifies to $p^2=2$. Moreover, $g$ is a contraction satisfying $|g'(x)| \leq 1/2 < 1$ Banach Fixed Point Theorem can also be used.  
 
 ### The Fixed Point Algorithm
 
