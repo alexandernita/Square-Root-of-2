@@ -64,7 +64,7 @@ The following simple observation may be of potential help.
 
 * ***Proposition*** $f\in C([a,b])$ has a root $f(p)=0$ in $[a,b]$ iff the associated function $g\in C([a,b])$,
 
-$\boxed{\;g(x)=x-f(x)\;}$
+$\boxed{\ g(x)=x-f(x)\ }$
 
 has a fixed point in $p$.
 
