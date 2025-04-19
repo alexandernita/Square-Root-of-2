@@ -58,6 +58,8 @@ $p_{n+1}=g(p_n)$
 
 The MVT shows convergence $p_n\to p$ to the unique fixed point of $g$.  The algorithm is the essence of simplicity, but depends heavily on the choice of contraction $g$.  If $g$ is not a contraction, the sequence $(p_n)_{n\in \mathbb{N}}$ may not converge.
 
+### Choosing the best $g$
+
 #### Choice of $g$ \#1
 
 The following simple observation may be of potential help.
