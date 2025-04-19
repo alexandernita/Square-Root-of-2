@@ -9,7 +9,15 @@ The **bisection algorithm** is based on the Intermediate Value Theorem (IVT) fro
 
 * **IVT:** If $f\in C([a,b])$, then every intermediate $y$-value $k$ between $f(a)$ and $f(b)$ is achieved: there exists a solution $x=c\in (a,b)$ of the equation $f(x)=k$.
 
-To use this theorem, we must choose a function $f$ which is continuous on a compact interval $[a,b]$ containing $x=\sqrt{2}$, the solution to $f(x)=0$.  From the definition of $\sqrt{2}$ we know $(\sqrt{2})^2=2\ \Longleftrightarrow\ (\sqrt{2})^2-2=0$, which demonstrates that the polynomial $f(x)=x^2-2$ has $x=\sqrt{2}$ as such a solution. Lastly, we need $[a,b]$ with $f(a)<0<f(b)$ or $f(a)>0>f(b)$.  Clearly $[1,2]$ serves this purpose.  
+To use this theorem, we must choose a function $f$ which is continuous on a compact interval $[a,b]$ containing $x=\sqrt{2}$, the solution to $f(x)=0$.  From the definition of $\sqrt{2}$ we know 
+
+$(\sqrt{2})^2=2\ \Longleftrightarrow\ (\sqrt{2})^2-2=0$ 
+
+which demonstrates that the polynomial 
+
+$f(x)=x^2-2$ 
+
+has $x=\sqrt{2}$ as such a solution. Lastly, we need $[a,b]$ with $f(a)<0<f(b)$ or $f(a)>0>f(b)$.  Clearly $[1,2]$ serves this purpose.  
 
 ### The Bisection Algorithm
 * **Input:**  $f(x)=x^2-2$, $a=1$ and $b=2$.
@@ -34,15 +42,29 @@ To use this theorem, we must choose a function $f$ which is continuous on a comp
 
 ### The Mathematical Basis
 
-The **fixed point method** requires $g\in C([a,b])$, as before, *and also* $g([a,b])\subseteq [a,b]$, because we are interested in finding a **fixed point** $p\in [a,b]$, satisfying $g(p)=p$.  The IVT can be use to show that such a $g$ has at least one fixed point:  If $g(a)=a$ or $g(b)=b$, we are done, we have a fixed point.  Otherwise, $a<g(a)$ and $g(b)<b$, in which case define $h(x)=g(x)-x$ and observe that $h(b)<0<h(a)$.  IVT says $\exists p\in (a,b)$ with $h(p)=0$.  But $h(p)=0$ means $g(p)=p$.  
+The **fixed point method** requires $g\in C([a,b])$, as before, *and also* $g([a,b])\subseteq [a,b]$, because we are interested in finding a **fixed point** $p\in [a,b]$, satisfying $g(p)=p$.  The IVT can be use to show that such a $g$ has at least one fixed point:  If $g(a)=a$ or $g(b)=b$, we are done, we have a fixed point.  Otherwise, $a<g(a)$ and $g(b)<b$, in which case define 
 
-If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contraction**), then the Mean Value Theorem (MVT) implies uniqueness for the fixed point. (Exercise!)  The **Banach Fixed-Point Theorem** is the name of this proposition.  An algorithm is got by starting with any initial guess $p_0\in [a,b]$, and just *plugging back in*, $p_{n+1}=g(p_n)$.   The MVT shows convergence $p_n\to p$ to the unique fixed point of $g$.  
+$h(x)=g(x)-x$ 
+
+and observe that $h(b)<0<h(a)$.  IVT says $\exists p\in (a,b)$ with $h(p)=0$.  But $h(p)=0$ means $g(p)=p$.  
+
+If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contraction**), then the Mean Value Theorem (MVT) implies uniqueness for the fixed point. (Exercise!)  The **Banach Fixed-Point Theorem** is the name given to this proposition.  An algorithm is got by starting with any initial guess 
+
+$p_0\in [a,b]$
+
+and then repeatedly *plugging back in*, 
+
+$p_{n+1}=g(p_n)$
+
+The MVT shows convergence $p_n\to p$ to the unique fixed point of $g$.  The algorithm is the essence of simplicity, but depends heavily on the choice of contraction $g$.  If $g$ is not a contraction, the sequence $(p_n)_{n\in \mathbb{N}}$ may not converge, or may converge to a non fixed point. 
 
 #### Test Case \#1
 
+The following simple observation may be of potential help.
+
 * ***Proposition*** $f\in C([a,b])$ has a root $f(p)=0$ in $[a,b]$ iff the associated function $g\in C([a,b])$ has a fixed point in $p$.
 
-Since $\sqrt{2}$ is a root of the polynomial $f(x) = x^2-2$, our first attempt will be $f$'s associated fixed point function $g(x) = x-f(x) = x-x^2+2$.  Note that $g\in C([0,2])$ and an easy calculation shows that $g([0,2])\subseteq [0,2]$.  Since $0<\sqrt{2}<2$, $g$ will hit this value by IVT, and this is the fixed point of $g$ associated to the root of $f$. But $g$ is *not a contraction* (in fact $\sup |g'|=3.5$ on $[0,2]$), so the Banach Fixed-Point Theorem doesn't apply, so we don't know that the sequence $(p_n)_{n\in \mathbb{N}}$ will converge.  
+Now, $\sqrt{2}$ is a root of the polynomial $f(x) = x^2-2$, so our first choice of $g$ will be $f$'s associated fixed point function $g(x) = x-f(x) = x-x^2+2$.  Note that $g\in C([0,2])$ and an easy calculation shows that $g([0,2])\subseteq [0,2]$.  Since $0<\sqrt{2}<2$, $g$ will hit this value by IVT, and this is the fixed point of $g$ associated to the root of $f$. But $g$ is *not a contraction* (in fact $\sup |g'|=3.5$ on $[0,2]$).  
 
 #### Test Case \#2
 
@@ -67,6 +89,7 @@ The solution is the to use the **Babylonian method**:  Let $g\in C([1,2])$ be gi
 
 ### The Mathematical Basis
 
-Suppose we know that $f\in C^2[a,b]$ has a root $p\in [a,b]$ (for example by observing $f(a)f(b)<0$ and applying IVT). Take an initial guess $p_0\approx p$ in $[a,b]$, and expand $f$ into a quadratic Taylor polynomial 
+Suppose we know that $f\in C^2[a,b]$ has a root $p\in [a,b]$ (for example by observing $f(a)f(b)<0$ and applying IVT). Take an initial guess $p_0\approx p$ in $[a,b]$, and expand $f$ into a quadratic Taylor polynomial about $x=p_0$,
 
 $\displaystyle 0=f(p)=f(p_0)+f'(p_0)(p-p_0)+\frac{(p-p_0)^2}{2}f"(\xi(p))$
+
