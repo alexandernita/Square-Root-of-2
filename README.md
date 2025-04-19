@@ -36,7 +36,7 @@ To use this theorem, we must choose a function $f$ which is continuous on a comp
 
 The **fixed point method** requires $g\in C([a,b])$, as before, *and also* $g([a,b])\subseteq [a,b]$, because we are interested in finding a **fixed point** $p\in [a,b]$, satisfying $g(p)=p$.  The IVT can be use to show that such a $g$ has at least one fixed point:  If $g(a)=a$ or $g(b)=b$, we are done, we have a fixed point.  Otherwise, $a<g(a)$ and $g(b)<b$, in which case define $h(x)=g(x)-x$ and observe that $h(b)<0<h(a)$.  IVT says $\exists p\in (a,b)$ with $h(p)=0$.  But $h(p)=0$ means $g(p)=p$.  
 
-If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contraction**), then the Mean Value Theorem (MVT) implies uniqueness for the fixed point. (Exercise!)  The **Banach Fixed-Point Theorem** is the name of this proposition.  An algorithm is got by starting with any initial guess $p_0\in [a,b]$, and just *plugging back in*, $p_{n+1}=g(p_n)$.   By the MVT this implies convergence $p_n\to p$ to a unique limit, the fixed point of $g$.  
+If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contraction**), then the Mean Value Theorem (MVT) implies uniqueness for the fixed point. (Exercise!)  The **Banach Fixed-Point Theorem** is the name of this proposition.  An algorithm is got by starting with any initial guess $p_0\in [a,b]$, and just *plugging back in*, $p_{n+1}=g(p_n)$.   The MVT shows convergence $p_n\to p$ to the unique fixed point of $g$.  
 
 ### Test Case \#1
 
