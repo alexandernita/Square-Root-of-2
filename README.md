@@ -18,6 +18,8 @@ To use this theorem, we must choose a function $f$ which is continuous on a comp
     2. **Set initial values, and their midpoint bisector:** $a_1=a$, $b_1=b$ and $c_1=(a_1+b_1)/2$.
     3. **Test $c_1$** to make sure we haven't accidentally hit upon the solution.
         + If $f(c_1)=0$, then $x=c_1$ is our solution. We are done. (Very unlikely, as $\sqrt{2}$ is irrational, but good to check generally).
+        + If $|f(c_1)|<e$, we have satisfied our error tolerance, and $x=c_1$ is an approximate solution. We are done. 
+        + If $n=N$, we stop without reaching a good enough approximation.
         + Else, set $n=n+1$ and proceed to the next step.  
     4. **Test for the sign of $f(c_1)$:** Neither $f(a_1)$, $f(b_1)$ nor $f(c_1)$ equal $0$. 
         + If $f(c_1)f(a_1)<0$, then the solution lies in $(a_1,c_1)$.  Therefore set 
