@@ -36,21 +36,21 @@ To use this theorem, we must choose a function $f$ which is continuous on a comp
 
 The **fixed point method** requires $g\in C([a,b])$, as before, *and also* $g([a,b])\subseteq [a,b]$, because we are interested in finding a **fixed point** $p\in [a,b]$, satisfying $g(p)=p$.  The IVT can be use to show that such a $g$ has at least one fixed point:  If $g(a)=a$ or $g(b)=b$, we are done, we have a fixed point.  Otherwise, $a<g(a)$ and $g(b)<b$, in which case define $h(x)=g(x)-x$ and observe that $h(b)<0<h(a)$.  IVT says $\exists p\in (a,b)$ with $h(p)=0$.  But $h(p)=0$ means $g(p)=p$.  
 
-If, *thirdly*, $\sup |g'|<1$ on $[a,b]$, then the Mean Value Theorem implies uniqueness for the fixed point. (Exercise!)  The **Banach Fixed-Point Theorem** is the name of this proposition.
+If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contraction**), then the Mean Value Theorem (MVT) implies uniqueness for the fixed point. (Exercise!)  The **Banach Fixed-Point Theorem** is the name of this proposition.
 
-### Test Case \# 1
+### Test Case \#1
 
 * ***Proposition*** $f\in C([a,b])$ has a root $f(p)=0$ in $[a,b]$ iff the associated function $g\in C([a,b])$ has a fixed point in $p$.
 
-Since $\sqrt{2}$ is by definition a root of the polynomial $f(x) = x^2-2$, we'll work with the associated fixed point function $g(x) = x-f(x) = x-x^2+2$.  Note that $g(0) = 2$, $g(2) = 0$, and $g$ is continuous, so by the IVT it must hit every $y$-value between $0$ and $2$, and this must happen somewhere in the interval $[0,2]$.  Since $0<\sqrt{2}<2$, $g$ will hit this value somewhere, and this is the fixed point of $g$ associated to the root of $f$. 
+Since $\sqrt{2}$ is a root of the polynomial $f(x) = x^2-2$, we'll work with the associated fixed point function $g(x) = x-f(x) = x-x^2+2$.  Note that $g(0) = 2$, $g(2) = 0$, and $g$ is continuous, so by the IVT it must hit every $y$-value between $0$ and $2$, and this must happen somewhere in the interval $[0,2]$.  Since $0<\sqrt{2}<2$, $g$ will hit this value somewhere, and this is the fixed point of $g$ associated to the root of $f$. 
 
-The vertex of the parabola $g$ is at the midpoint between the roots $-1$ and $2$, at $x = 0.5$.  Now, $g(0.5)=2.25$, and $g(2.25) = -8.125$, so $g$ maps the interval $[-1,2.25]$ into itself, $g : [-1,2.25]-->[-1,2.25]$.  Also, $g'(x) = 1-2x$, which is a decreasing function everywhere, so has no critical points, and must attain its max and min at the endpoints of $[-1,2]$, $g'(-1) = 3$, $g'(2.25) = -3.5$.  Therefore $g$ is not a contraction. We know $g$ has a fixed point, but the Banach Fixed-Point Theorem doesn't apply, so we don't know that the iteration will converge.  
+The vertex of the parabola $g(x)$ is at the midpoint between the roots $x=-1$ and $x=2$, at $x = 0.5$.  Now, $g(0.5)=2.25$, and $g(2.25) = -8.125$, so $g$ maps the interval $[-1,2.25]$ into itself, $g([-1,2.25])\subseteq [-1,2.25]$.  Also, $g'(x) = 1-2x$, which is a decreasing function everywhere, so has no critical points, and must attain its max and min at the endpoints of $[-1,2]$, $g'(-1) = 3$, $g'(2.25) = -3.5$.  Therefore $g$ is *not a contraction*. We know $g$ has a fixed point, but the Banach Fixed-Point Theorem doesn't apply, so we don't know that the iteration below will converge.  
 
-### Test Case \# 2
+### Test Case \#2
 
 A similar problem occurs with $g(x) = 2/x$ on $[1,2]$. (Exercise!)
 
-### Test Case \# 3: the Babylonian Method
+### Test Case \#3: the Babylonian Method
 
 The solution is the to use the **Babylonian method**:  Let $g\in C([1,2])$ be given by $g(x) = (x+2/x)/2$, which satisfies $g([1,2])=[\sqrt{2}, 3/2] \subseteq [1,2]$, so $g$ has a fixed point. Moreover, the fixed is $\sqrt{2}$ since $p=g(p)$ means $p=(p+2/p)/2$, which simplifies to $p^2=2$. Note also that $g'(x) = (1-2/x^2)/2$, and we can find its max and min on $[1,2]$ using calculus optimization: $g''(x) = 2/x^3$, so $g'$ is increasing, and therefore has its max and min at the endpoints:  $g'(1) = -1/2$, $g'(2) = 1/4$.  Therefore $|g'(x)| \leq 1/2 < 1$.  The Banach Fixed Point Theorem can therefore be applied to get a *unique* fixed point.
 
