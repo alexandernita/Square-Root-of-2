@@ -7,7 +7,7 @@ Three root finding algorithms to compute the square root of 2, the bisection met
 The **bisection algorithm** is based on the Intermediate Value Theorem from calculus, 
 >
 If $f\in C([a,b])$, then every intermediate $y$-value $k$ between $f(a)$ and $f(b)$ is achieved: there exists a solution $x=c\in (a,b)$ of the equation $f(x)=k$.
->
+
 and requires inputting the endpoints $a$ and $b$ of the compact interval $[a,b]$ over which $g(x)=x^2-2$, in this case, is continuous (automatic, since $g$ is a polynomial) and has opposite signs at $a$ and at $b$.  For this $g(x)$ the interval $[1,2]$ works because $g(1)=-1<0<2=g(2)$.  
 
 ## The Fixed Point Method
