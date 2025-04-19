@@ -1,10 +1,3 @@
-<head>
-<script type="text/javascript" async
-src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js? 
-config=TeX-MML-AM_CHTML">
-</script>
-</head>
-
 # The Square Root of 2
 
 Three root finding algorithms to compute the square root of 2, the bisection method, the Babylonian method, and Newton's method.
@@ -77,6 +70,9 @@ The solution is the to use the **Babylonian method**:  Let $g\in C([1,2])$ be gi
 ### The Mathematical Basis
 
 Suppose we know that $f\in C^2[a,b]$ has a root $p\in [a,b]$ (for example by observing $f(a)f(b)<0$ and applying IVT). Take an initial guess $p_0\approx p$ in $[a,b]$, and expand $f$ into a quadratic Taylor polynomial 
-$$
+<center>
+$
+\displaystyle
 0=f(p)=f(p_0)+f'(p_0)(p-p_0)+\frac{(p-p_0)^2}{2}f"(\xi(p))
-$$
+$
+</center>
