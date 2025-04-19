@@ -50,15 +50,15 @@ A similar problem occurs with $g(x) = 2/x$ on $[1,2]$. (Exercise!)
 
 #### Test Case \#3: the Babylonian Method
 
-The solution is the to use the **Babylonian method**:  Let $g\in C([1,2])$ be given by $g(x) = (x+2/x)/2$, which satisfies $g([1,2])=[\sqrt{2}, 3/2] \subseteq [1,2]$, so $g$ has a fixed point. Moreover, the fixed is $\sqrt{2}$ since $p=g(p)$ means $p=(p+2/p)/2$, which simplifies to $p^2=2$. Note also that $g'(x) = (1-2/x^2)/2$, and we can find its max and min on $[1,2]$ using calculus optimization: $g''(x) = 2/x^3$, so $g'$ is increasing, and therefore has its max and min at the endpoints:  $g'(1) = -1/2$, $g'(2) = 1/4$.  Therefore $|g'(x)| \leq 1/2 < 1$.  The Banach Fixed Point Theorem can accordingly be applied to get a *unique* fixed point.
+The solution is the to use the **Babylonian method**:  Let $g\in C([1,2])$ be given by $g(x) = (x+2/x)/2$, which satisfies $g([1,2])=[\sqrt{2}, 3/2] \subseteq [1,2]$, so $g$ has a fixed point. Moreover, this fixed point is $\sqrt{2}$ since $p=g(p)$ means $p=(p+2/p)/2$, which simplifies to $p^2=2$. Note also that $g'(x) = (1-2/x^2)/2$, and we can find its max and min on $[1,2]$ using calculus optimization: $g''(x) = 2/x^3$, so $g'$ is increasing, and therefore has its max and min at the endpoints:  $g'(1) = -1/2$, $g'(2) = 1/4$.  Therefore $|g'(x)| \leq 1/2 < 1$.  The Banach Fixed Point Theorem can accordingly be applied to get a *unique* fixed point.
 
 ### The Fixed Point Algorithm
 
-* **Input:**  $\displaystyle g(x)=\frac{x+\frac{2}{x}}{2}$, $a=1$ and $b=2$.
+* **Input:**  $\displaystyle g(x)=\frac{1}{2}\Bigl(x+\frac{2}{x}\Bigr)$, $a=1$ and $b=2$.
 
     1. **Set error, tolerance, and counter:** $0<e=$ error size, $N=$ number of iterations, $n=0$ counter initial value.
     2. **Choose initial estimate:** Choose $p_0\in [1,2]$.
-    3. **Recursion (Babylonian method):** Let $\displaystyle p_1=g(p_0)=\frac{p_0+\frac{2}{p_0}}{2}$
+    3. **Recursion (Babylonian method):** Let $\displaystyle p_1=g(p_0)=\frac{1}{2}\Bigl(p_0+\frac{2}{p_0}\Bigr)$
         + If $|p_2-p_1|<e$, stop.  We have a good enough approximation in $p_2$.  ∏
         + If $n=N$, we stop without reaching a good enough approximation.
         + Else, set $n=n+1$ and repeat this step.  
