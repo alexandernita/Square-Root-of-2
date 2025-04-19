@@ -17,13 +17,13 @@ To use this theorem, we must choose a function $f$ which is continuous on a comp
     1. **Set error, tolerance, and counter:** $0<e=$ error size, $N=$ number of iterations, $n=0$ counter initial value.
     2. **Set initial values, and their midpoint bisector:** $a_1=a$, $b_1=b$ and $c_1=(a_1+b_1)/2$.
     3. **Test $c_1$** to make sure we haven't accidentally hit upon the solution.
-        a. If $f(c_1)=0$, then $x=c_1$ is our solution. We are done. (Very unlikely, as $\sqrt{2}$ is irrational, but good to check generally).
-        b. If $f(c_1)\neq 0$, then set $n=n+1$ and proceed to the next step.  
+        + If $f(c_1)=0$, then $x=c_1$ is our solution. We are done. (Very unlikely, as $\sqrt{2}$ is irrational, but good to check generally).
+        + Else, set $n=n+1$ and proceed to the next step.  
     4. **Test for the sign of $f(c_1)$:** Neither $f(a_1)$, $f(b_1)$ nor $f(c_1)$ equal $0$. 
-        a. If $f(c_1)f(a_1)<0$, then the solution lies in $(a_1,c_1)$.  Therefore set 
+        + If $f(c_1)f(a_1)<0$, then the solution lies in $(a_1,c_1)$.  Therefore set 
             * $a_2=a_1$, $b_2=c_1$, $c_2=\frac{a_2+b_2}{2}$.
             * Repeat steps 3 and 4.
-        b. If $f(c_1)f(a_1)>0$, then the solution lies in $(c_1,b_1)$.  Therefore set 
+        + Else, the solution lies in $(c_1,b_1)$.  Therefore set 
             * $a_2=c_1$, $b_2=b_1$, $c_2=\frac{a_2+b_2}{2}$.
             * Repeat steps 3 and 4.
 
