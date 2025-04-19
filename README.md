@@ -44,7 +44,7 @@ If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contracti
 
 Since $\sqrt{2}$ is a root of the polynomial $f(x) = x^2-2$, we'll work with the associated fixed point function $g(x) = x-f(x) = x-x^2+2$.  Note that $g(0) = 2$, $g(2) = 0$, and $g$ is continuous, so by the IVT it must hit every $y$-value between $0$ and $2$, and this must happen somewhere in the interval $[0,2]$.  Since $0<\sqrt{2}<2$, $g$ will hit this value somewhere, and this is the fixed point of $g$ associated to the root of $f$. 
 
-The vertex of the parabola $g(x)$ is at the midpoint between the roots $x=-1$ and $x=2$, at $x = 0.5$.  Now, $g(0.5)=2.25$, and $g(2.25) = -8.125$, so $g$ maps the interval $[-1,2.25]$ into itself, $g([-1,2.25])\subseteq [-1,2.25]$.  Also, $g'(x) = 1-2x$, which is a decreasing function everywhere, so has no critical points, and must attain its max and min at the endpoints of $[-1,2]$, $g'(-1) = 3$, $g'(2.25) = -3.5$.  Therefore $g$ is *not a contraction*. We know $g$ has a fixed point, but the Banach Fixed-Point Theorem doesn't apply, so we don't know that the iteration below will converge.  
+But there is a problem:  The vertex of the parabola $g(x)$ is at the midpoint between the roots $x=-1$ and $x=2$, at $x = 0.5$.  Now, $g(0.5)=2.25$, and $g(2.25) = -8.125$, so $g$ maps the interval $[-1,2.25]$ into itself, $g([-1,2.25])\subseteq [-1,2.25]$.  Also, $g'(x) = 1-2x$, which is a decreasing function everywhere, so has no critical points, and must attain its max and min at the endpoints of $[-1,2]$, $g'(-1) = 3$, $g'(2.25) = -3.5$.  Therefore $g$ is *not a contraction*. We know $g$ has a fixed point, but the Banach Fixed-Point Theorem doesn't apply, so we don't know that the iteration below will converge.  
 
 #### Test Case \#2
 
@@ -56,11 +56,11 @@ The solution is the to use the **Babylonian method**:  Let $g\in C([1,2])$ be gi
 
 ### The Fixed Point Algorithm
 
-* **Input:**  $f(x)=x^2-2$, $a=1$ and $b=2$.
+* **Input:**  $\displaystyle g(x)=\frac{x+\frac{2}{x}}{2}$, $a=1$ and $b=2$.
 
     1. **Set error, tolerance, and counter:** $0<e=$ error size, $N=$ number of iterations, $n=0$ counter initial value.
     2. **Choose initial estimate:** Choose $p_0\in [1,2]$.
-    3. **Recursion (Babylonian method):** Let $p_1=g(p_0)=(p_0+2/p_0)/2$
+    3. **Recursion (Babylonian method):** Let $\displaystyle p_1=g(p_0)=\frac{p_0+\frac{2}{p_0}}{2}$
         + If $|p_2-p_1|<e$, stop.  We have a good enough approximation in $p_2$.  ∏
         + If $n=N$, we stop without reaching a good enough approximation.
         + Else, set $n=n+1$ and repeat this step.  
