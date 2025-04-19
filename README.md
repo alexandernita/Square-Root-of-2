@@ -36,7 +36,7 @@ To use this theorem, we must choose a function $f$ which is continuous on a comp
 
 The **fixed point method** requires $g\in C([a,b])$, as before, *and also* $g([a,b])\subseteq [a,b]$, because we are interested in finding a **fixed point** $p\in [a,b]$, satisfying $g(p)=p$.  The IVT can be use to show that such a $g$ has at least one fixed point:  If $g(a)=a$ or $g(b)=b$, we are done, we have a fixed point.  Otherwise, $a<g(a)$ and $g(b)<b$, in which case define $h(x)=g(x)-x$ and observe that $h(b)<0<h(a)$.  IVT says $\exists p\in (a,b)$ with $h(p)=0$.  But $h(p)=0$ means $g(p)=p$.  
 
-If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contraction**), then the Mean Value Theorem (MVT) implies uniqueness for the fixed point. (Exercise!)  The **Banach Fixed-Point Theorem** is the name of this proposition.
+If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contraction**), then the Mean Value Theorem (MVT) implies uniqueness for the fixed point. (Exercise!)  The **Banach Fixed-Point Theorem** is the name of this proposition.  An algorithm is got by starting with any initial guess $p_0\in [a,b]$, and just *plugging back in*, $p_{n+1}=g(p_n)$.   By the MVT this implies convergence $p_n\to p$ to a unique limit, the fixed point of $g$.  
 
 ### Test Case \#1
 
@@ -52,7 +52,7 @@ A similar problem occurs with $g(x) = 2/x$ on $[1,2]$. (Exercise!)
 
 ### Test Case \#3: the Babylonian Method
 
-The solution is the to use the **Babylonian method**:  Let $g\in C([1,2])$ be given by $g(x) = (x+2/x)/2$, which satisfies $g([1,2])=[\sqrt{2}, 3/2] \subseteq [1,2]$, so $g$ has a fixed point. Moreover, the fixed is $\sqrt{2}$ since $p=g(p)$ means $p=(p+2/p)/2$, which simplifies to $p^2=2$. Note also that $g'(x) = (1-2/x^2)/2$, and we can find its max and min on $[1,2]$ using calculus optimization: $g''(x) = 2/x^3$, so $g'$ is increasing, and therefore has its max and min at the endpoints:  $g'(1) = -1/2$, $g'(2) = 1/4$.  Therefore $|g'(x)| \leq 1/2 < 1$.  The Banach Fixed Point Theorem can therefore be applied to get a *unique* fixed point.
+The solution is the to use the **Babylonian method**:  Let $g\in C([1,2])$ be given by $g(x) = (x+2/x)/2$, which satisfies $g([1,2])=[\sqrt{2}, 3/2] \subseteq [1,2]$, so $g$ has a fixed point. Moreover, the fixed is $\sqrt{2}$ since $p=g(p)$ means $p=(p+2/p)/2$, which simplifies to $p^2=2$. Note also that $g'(x) = (1-2/x^2)/2$, and we can find its max and min on $[1,2]$ using calculus optimization: $g''(x) = 2/x^3$, so $g'$ is increasing, and therefore has its max and min at the endpoints:  $g'(1) = -1/2$, $g'(2) = 1/4$.  Therefore $|g'(x)| \leq 1/2 < 1$.  The Banach Fixed Point Theorem can accordingly be applied to get a *unique* fixed point.
 
 ### The Fixed Point Algorithm
 
