@@ -5,7 +5,7 @@ print("\n \t    Bisection   \t  Babylonian    \t  Newton's")
 print("\t------------------------------------------------------------------\n")
     
 ###########################
-#  Bisection
+#  Bisection Method
 
 n=0
 
@@ -37,7 +37,7 @@ for i in range(1,N):
 
 
 ###########################
-#  Babylonian
+#  Babylonian Method + Banach Fixed Point Theorem
 
 p = 1           # Initial guess, p_0
 e = 1e-10       # Tolerance: 10 decimals
@@ -58,7 +58,7 @@ for i in range(1,m+1):
 
 
 ###########################
-#  Newton
+#  Newton's Method
 
 p=1     # initial guess
 q=p     
