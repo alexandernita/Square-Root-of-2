@@ -52,7 +52,7 @@ If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contracti
 
 $p_0\in [a,b]$
 
-and then *plugging $p_n$ back into $g$* to get the next term,
+and then *plugging* $p_n$ *back into* $g$ to get the next term,
 
 $p_{n+1}=g(p_n)$
 
