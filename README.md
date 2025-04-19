@@ -42,9 +42,7 @@ If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contracti
 
 * ***Proposition*** $f\in C([a,b])$ has a root $f(p)=0$ in $[a,b]$ iff the associated function $g\in C([a,b])$ has a fixed point in $p$.
 
-Since $\sqrt{2}$ is a root of the polynomial $f(x) = x^2-2$, we'll work with the associated fixed point function $g(x) = x-f(x) = x-x^2+2$.  Note that $g(0) = 2$, $g(2) = 0$, and $g$ is continuous, so by the IVT it must hit every $y$-value between $0$ and $2$, and this must happen somewhere in the interval $[0,2]$.  Since $0<\sqrt{2}<2$, $g$ will hit this value somewhere, and this is the fixed point of $g$ associated to the root of $f$. 
-
-But there is a problem:  The vertex of the parabola $g(x)$ is at the midpoint between the roots $x=-1$ and $x=2$, at $x = 0.5$.  Now, $g(0.5)=2.25$, and $g(2.25) = -8.125$, so $g$ maps the interval $[-1,2.25]$ into itself, $g([-1,2.25])\subseteq [-1,2.25]$.  Also, $g'(x) = 1-2x$, which is a decreasing function everywhere, so has no critical points, and must attain its max and min at the endpoints of $[-1,2]$, $g'(-1) = 3$, $g'(2.25) = -3.5$.  Therefore $g$ is *not a contraction*. We know $g$ has a fixed point, but the Banach Fixed-Point Theorem doesn't apply, so we don't know that the iteration below will converge.  
+Since $\sqrt{2}$ is a root of the polynomial $f(x) = x^2-2$, our first attempt will be $f$'s associated fixed point function $g(x) = x-f(x) = x-x^2+2$.  Note that $g\in C([0,2])$ and an easy calculation shows that $g([0,2])\subseteq [0,2]$.  Since $0<\sqrt{2}<2$, $g$ will hit this value by IVT, and this is the fixed point of $g$ associated to the root of $f$. But $g$ is *not a contraction* (in fact $\sup |g'|=3.5$ on $[0,2]$), so the Banach Fixed-Point Theorem doesn't apply, so we don't know that the sequence $(p_n)_{n\in \mathbb{N}}$ will converge.  
 
 #### Test Case \#2
 
