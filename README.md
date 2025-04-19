@@ -21,11 +21,11 @@ To use this theorem, we must choose a function $f$ which is continuous on a comp
         + If $|f(c_1)|<e$, we have satisfied our error tolerance, and $x=c_1$ is an approximate solution. We are done. 
         + If $n=N$, we stop without reaching a good enough approximation.
         + Else, set $n=n+1$ and proceed to the next step.  
-    4. **Test for the sign of $f(c_1)$:** Neither $f(a_1)$, $f(b_1)$ nor $f(c_1)$ equal $0$. 
-        + If $f(c_1)f(a_1)<0$, then the solution lies in $(a_1,c_1)$.  Therefore set 
+    4. **Test for the sign of $f(c_1)$:** Neither $f(a_1)$, nor $f(b_1)$ nor $f(c_1)$ equal $0$. 
+        + If $f(c_1)f(a_1)<0$, then the solution lies in $(a_1,c_1)$ by IVT.  Therefore set 
             * $a_2=a_1$, $b_2=c_1$, $c_2=\frac{a_2+b_2}{2}$.  (The solution lies in $[a_2,b_2]=[a_1,c_1]$, and now we will test its midpoint $c_2$)
             * Repeat steps 3 and 4 with $a_2$, $b_2$ and $c_2$ in place of $a_1$, $b_1$, $c_1$.
-        + Else, the solution lies in $(c_1,b_1)$.  Therefore set 
+        + Else, the solution lies in $(c_1,b_1)$ by IVT.  Therefore set 
             * $a_2=c_1$, $b_2=b_1$, $c_2=\frac{a_2+b_2}{2}$.
             * Repeat steps 3 and 4 with $a_2$, $b_2$ and $c_2$ in place of $a_1$, $b_1$, $c_1$.
     5. etc.
@@ -64,3 +64,12 @@ The solution is the to use the **Babylonian method**:  Let $g\in C([1,2])$ be gi
         + If $|p_2-p_1|<e$, stop.  We have a good enough approximation in $p_2$.  
         + If $n=N$, we stop without reaching a good enough approximation.
         + Else, set $n=n+1$ and repeat this step.  
+
+## Newton's Method
+
+### The Mathematical Basis
+
+Suppose we know that $f\in C^2[a,b]$ has a root $p\in [a,b]$ (for example by observing $f(a)f(b)<0$ and applying IVT). Take an initial guess $p_0\approx p$ in $[a,b]$, and expand $f$ into a quadratic Taylor polynomial 
+$$
+0=f(p)=f(p_0)+f'(p_0)(p-p_0)+\frac{(p-p_0)^2}{2}f"(\xi(p))
+$$
