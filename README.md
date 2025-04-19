@@ -58,7 +58,7 @@ $p_{n+1}=g(p_n)$
 
 The MVT shows convergence $p_n\to p$ to the unique fixed point of $g$.  The algorithm is the essence of simplicity, but depends heavily on the choice of contraction $g$.  If $g$ is not a contraction, the sequence $(p_n)_{n\in \mathbb{N}}$ may not converge.
 
-#### Test Case \#1
+#### Choice of $g$ \#1
 
 The following simple observation may be of potential help.
 
@@ -66,11 +66,11 @@ The following simple observation may be of potential help.
 
 Now, $\sqrt{2}$ is a root of the polynomial $f(x) = x^2-2$, so our first choice of $g$ will be $f$'s associated fixed point function $g(x) = x-f(x) = x-x^2+2$.  Note that $g\in C([0,2])$ and an easy calculation shows that $g([0,2])\subseteq [0,2]$.  Since $0<\sqrt{2}<2$, $g$ will hit this value by IVT, and this is the fixed point of $g$ associated to the root of $f$. But $g$ is *not a contraction* (in fact $\sup |g'|=3.5$ on $[0,2]$).  
 
-#### Test Case \#2
+#### Choice of $g$ \#2
 
 A similar problem occurs with $g(x) = 2/x$ on $[1,2]$. (Exercise!)
 
-#### Test Case \#3: the Babylonian Method
+#### Choice of $g$ \#3: the Babylonian Method
 
 The solution the **Babylonian method**, which uses $g\in C([1,2])$ given by $g(x) = (x+2/x)/2$: this function satisfies $g([1,2])=[\sqrt{2}, 3/2] \subseteq [1,2]$, showing that it has a fixed point, and this fixed point is $\sqrt{2}$ since $p=g(p)$ means $p=(p+2/p)/2$, which simplifies to $p^2=2$. Moreover, $g$ is a contraction satisfying $|g'(x)| \leq 1/2 < 1$ Banach Fixed Point Theorem can also be used.  
 
