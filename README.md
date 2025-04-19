@@ -38,7 +38,7 @@ The **fixed point method** requires $g\in C([a,b])$, as before, *and also* $g([a
 
 If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contraction**), then the Mean Value Theorem (MVT) implies uniqueness for the fixed point. (Exercise!)  The **Banach Fixed-Point Theorem** is the name of this proposition.  An algorithm is got by starting with any initial guess $p_0\in [a,b]$, and just *plugging back in*, $p_{n+1}=g(p_n)$.   The MVT shows convergence $p_n\to p$ to the unique fixed point of $g$.  
 
-### Test Case \#1
+#### Test Case \#1
 
 * ***Proposition*** $f\in C([a,b])$ has a root $f(p)=0$ in $[a,b]$ iff the associated function $g\in C([a,b])$ has a fixed point in $p$.
 
@@ -46,11 +46,11 @@ Since $\sqrt{2}$ is a root of the polynomial $f(x) = x^2-2$, we'll work with the
 
 The vertex of the parabola $g(x)$ is at the midpoint between the roots $x=-1$ and $x=2$, at $x = 0.5$.  Now, $g(0.5)=2.25$, and $g(2.25) = -8.125$, so $g$ maps the interval $[-1,2.25]$ into itself, $g([-1,2.25])\subseteq [-1,2.25]$.  Also, $g'(x) = 1-2x$, which is a decreasing function everywhere, so has no critical points, and must attain its max and min at the endpoints of $[-1,2]$, $g'(-1) = 3$, $g'(2.25) = -3.5$.  Therefore $g$ is *not a contraction*. We know $g$ has a fixed point, but the Banach Fixed-Point Theorem doesn't apply, so we don't know that the iteration below will converge.  
 
-### Test Case \#2
+#### Test Case \#2
 
 A similar problem occurs with $g(x) = 2/x$ on $[1,2]$. (Exercise!)
 
-### Test Case \#3: the Babylonian Method
+#### Test Case \#3: the Babylonian Method
 
 The solution is the to use the **Babylonian method**:  Let $g\in C([1,2])$ be given by $g(x) = (x+2/x)/2$, which satisfies $g([1,2])=[\sqrt{2}, 3/2] \subseteq [1,2]$, so $g$ has a fixed point. Moreover, the fixed is $\sqrt{2}$ since $p=g(p)$ means $p=(p+2/p)/2$, which simplifies to $p^2=2$. Note also that $g'(x) = (1-2/x^2)/2$, and we can find its max and min on $[1,2]$ using calculus optimization: $g''(x) = 2/x^3$, so $g'$ is increasing, and therefore has its max and min at the endpoints:  $g'(1) = -1/2$, $g'(2) = 1/4$.  Therefore $|g'(x)| \leq 1/2 < 1$.  The Banach Fixed Point Theorem can accordingly be applied to get a *unique* fixed point.
 
@@ -61,7 +61,7 @@ The solution is the to use the **Babylonian method**:  Let $g\in C([1,2])$ be gi
     1. **Set error, tolerance, and counter:** $0<e=$ error size, $N=$ number of iterations, $n=0$ counter initial value.
     2. **Choose initial estimate:** Choose $p_0\in [1,2]$.
     3. **Recursion (Babylonian method):** Let $p_1=g(p_0)=(p_0+2/p_0)/2$
-        + If $|p_2-p_1|<e$, stop.  We have a good enough approximation in $p_2$.  
+        + If $|p_2-p_1|<e$, stop.  We have a good enough approximation in $p_2$.  ∏
         + If $n=N$, we stop without reaching a good enough approximation.
         + Else, set $n=n+1$ and repeat this step.  
 
@@ -70,6 +70,6 @@ The solution is the to use the **Babylonian method**:  Let $g\in C([1,2])$ be gi
 ### The Mathematical Basis
 
 Suppose we know that $f\in C^2[a,b]$ has a root $p\in [a,b]$ (for example by observing $f(a)f(b)<0$ and applying IVT). Take an initial guess $p_0\approx p$ in $[a,b]$, and expand $f$ into a quadratic Taylor polynomial 
-$$
+\begin{equation}
 0=f(p)=f(p_0)+f'(p_0)(p-p_0)+\frac{(p-p_0)^2}{2}f"(\xi(p))
-$$
+\end{equation}
