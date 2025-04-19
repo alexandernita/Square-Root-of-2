@@ -62,7 +62,11 @@ The MVT shows convergence $p_n\to p$ to the unique fixed point of $g$.  The algo
 
 The following simple observation may be of potential help.
 
-* ***Proposition*** $f\in C([a,b])$ has a root $f(p)=0$ in $[a,b]$ iff the associated function $g\in C([a,b])$ has a fixed point in $p$.
+* ***Proposition*** $f\in C([a,b])$ has a root $f(p)=0$ in $[a,b]$ iff the associated function $g\in C([a,b])$,
+
+$\boxed{\;g(x)=x-f(x)\;}$
+
+has a fixed point in $p$.
 
 Now, $\sqrt{2}$ is a root of the polynomial $f(x) = x^2-2$, so our first choice of $g$ will be $f$'s associated fixed point function $g(x) = x-f(x) = x-x^2+2$.  Note that $g\in C([0,2])$ and an easy calculation shows that $g([0,2])\subseteq [0,2]$.  Since $0<\sqrt{2}<2$, $g$ will hit this value by IVT, and this is the fixed point of $g$ associated to the root of $f$. But $g$ is *not a contraction* (in fact $\sup |g'|=3.5$ on $[0,2]$).  
 
