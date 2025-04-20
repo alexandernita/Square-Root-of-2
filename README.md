@@ -105,3 +105,16 @@ is continuous on $\overline{V_\delta(p)}$ and satisfies $g'(p)=0$.  Shrinking $\
 
 $p_0\in [a,b]$\
 $p_{n+1}=g(p_n)$
+
+In our case, $g(x)=x-\frac{f(x)}{f'(x)}=x-\frac{x^2-2}{2x}=\frac{x}{2}+\frac{1}{x}$, so $g'(x)=\frac{1}{2}-\frac{1}{x^2}$, which is increasing on $[1,2]$ (because $g"(x)=\frac{2}{x^3}>0$), and $g'(1)=-\frac{1}{2}$ and $g'(2)=\frac{1}{4}$, so $\sup |g'|=\frac{1}{2}<1$.  This $g$ is a contraction on $[1,2]$, so is has a unique fixed point there, $p=g(p)=\frac{p}{2}+\frac{1}{p}$, which is equivalent to $p^2=2$.
+
+### Newton's Method Algorithm
+
+* **Input:**  $\displaystyle g(x)=x-\frac{f(x)}{f'(x)}=x-\frac{x^2-2}{2x}$, $a=1$ and $b=2$.
+
+    1. **Set error, tolerance, and counter:** $0<e=$ error size, $N=$ number of iterations, $n=0$ counter initial value.
+    2. **Choose initial estimate:** Choose $p_0\in [1,2]$.
+    3. **Recursion (Babylonian method):** Let $\displaystyle p_1=g(p_0)=\frac{1}{2}\Bigl(p_0+\frac{2}{p_0}\Bigr)$
+        + If $|p_2-p_1|<e$, stop.  We have a good enough approximation in $p_2$. 
+        + If $n=N$, we stop without reaching a good enough approximation.
+        + Else, set $n=n+1$ and repeat this step, iii.  
