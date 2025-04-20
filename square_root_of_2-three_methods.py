@@ -1,7 +1,7 @@
 print("\n\t\t\t       The Square Root of 2")
-print("\n\t\t\tComparison of the Methods So Far")
+print("\n\t\t\t     Comparison of the Methods")
 print("\t\t----------------------------------------------")
-print("\n \t    Bisection   \t  Babylonian    \t  Newton's")
+print("\t    Bisection   \t  Babylonian    \t  Newton's")
 print("\t------------------------------------------------------------------\n")
     
 ###########################
@@ -86,7 +86,7 @@ m = max(r)
 
 if len(BIS)<m:
     l = len(BIS)
-    for j in range(i+1,m+1):
+    for j in range(l+1,m+1):
         BIS.append(0)
         
 if len(BAB)<m:
@@ -96,7 +96,7 @@ if len(BAB)<m:
         
 if len(NEWT)<m:
     l = len(NEWT)
-    for j in range(len(NEWT)+1,m+1):
+    for j in range(l+1,m+1):
         NEWT.append(0)
 
 for x, y, z in zip(BIS,BAB,NEWT):

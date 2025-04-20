@@ -95,7 +95,7 @@ $\displaystyle 0=f(p)\approx f(p_0)+f'(p_0)(p-p_0)
 
 Needless to say, we must require $f'(p)\neq 0$, since then $f'(x)\neq 0$ in a small neighborhood $\overline{V_\delta(p)}=[p-\delta,p+\delta]$ of $p$ (because $f'\in C^1([a,b])$).  The function 
 
-$g(x)=x-f(x)/f'(x)$[^1]
+$g(x)=x-f(x)/f'(x)$
 
 is then continuous on $\overline{V_\delta(p)}$.  Its derivative
 
@@ -105,5 +105,3 @@ is continuous on $\overline{V_\delta(p)}$ and satisfies $g'(p)=0$.  Shrinking $\
 
 $p_0\in [a,b]$\
 $p_{n+1}=g(p_n)$
-
-[^1]: In general (although we won't need this here) if $f'$ is complicated, we can replace it with its approximate value at $p_n$, $f'(p_n)\approx \frac{f(x)-f(p_n)}{x-p_n}$, so that $p_{n+1}=p_n-\frac{f(p_n)}{f'(p_n)}\approx \frac{f(p_n)(p_{n-1}-p_n)}{f(p_{n-1})-f(p_n)}$.
