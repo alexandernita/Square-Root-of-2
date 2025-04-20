@@ -95,7 +95,7 @@ $\displaystyle 0=f(p)\approx f(p_0)+f'(p_0)(p-p_0)
 
 Needless to say, we must require $f'(p)\neq 0$, since then $f'(x)\neq 0$ in a small neighborhood $\overline{V_\delta(p)}=[p-\delta,p+\delta]$ of $p$ (because $f'\in C^1([a,b])$).  The function 
 
-$g(x)=x-f(x)/f'(x)$
+$g(x)=x-\frac{f(x)}{f'(x)}$
 
 is then continuous on $\overline{V_\delta(p)}$.  Its derivative
 
@@ -106,7 +106,11 @@ is continuous on $\overline{V_\delta(p)}$ and satisfies $g'(p)=0$.  Shrinking $\
 $p_0\in [a,b]$\
 $p_{n+1}=g(p_n)$
 
-In our case, $g(x)=x-\frac{f(x)}{f'(x)}=x-\frac{x^2-2}{2x}=\frac{x}{2}+\frac{1}{x}$, so $g'(x)=\frac{1}{2}-\frac{1}{x^2}$, which is increasing on $[1,2]$ (because $g"(x)=\frac{2}{x^3}>0$), and $g'(1)=-\frac{1}{2}$ and $g'(2)=\frac{1}{4}$, so $\sup |g'|=\frac{1}{2}<1$.  This $g$ is a contraction on $[1,2]$, so is has a unique fixed point there, $p=g(p)=\frac{p}{2}+\frac{1}{p}$, which is equivalent to $p^2=2$.
+In our case, 
+
+$g(x)=x-\frac{f(x)}{f'(x)}=\frac{x}{2}+\frac{1}{x}\ \implies\ g'(x)=\frac{1}{2}-\frac{1}{x^2}$ 
+
+Moreover, $g'$ is increasing on $[1,2]$ because $g"(x)=\frac{2}{x^3}>0$, and $g'(1)=-\frac{1}{2}$ and $g'(2)=\frac{1}{4}$, which shows that $\sup |g'|=\frac{1}{2}<1$.  Our $g$ is a contraction on $[1,2]$, so is has a unique fixed point, $p=g(p)=\frac{p}{2}+\frac{1}{p}$, which is equivalent to $p^2=2$.
 
 ### Newton's Method Algorithm
 
