@@ -48,14 +48,14 @@ $h(x)=g(x)-x$
 
 and observe that $h(b)<0<h(a)$.  IVT says $\exists p\in (a,b)$ with $h(p)=0$.  But $h(p)=0$ means $g(p)=p$.  
 
-If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contraction**), then the Mean Value Theorem (MVT) implies uniqueness for the fixed point. (Exercise!)  The **Banach Fixed-Point Theorem** is the name given to this proposition.  An algorithm is got by starting with any initial guess and then *plugging* $p_n$ *back into* $g$ to get the next term,
+If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contraction**), then the Mean Value Theorem (MVT) implies uniqueness for the fixed point. (Exercise!)  The **Banach Fixed-Point Theorem** is the name given to this proposition.  An algorithm is got by starting with any initial guess $p_0$ and then *plugging* $p_n$ *back into* $g$ to get $p_{n+1}$,
 
 $p_0\in [a,b]$\
 $p_{n+1}=g(p_n)$
 
-The MVT shows convergence $p_n\to p$ to the unique fixed point of $g$.  The algorithm is the essence of simplicity, but depends heavily on the choice of contraction $g$.  If $g$ is not a contraction, the sequence $(p_n)_{n\in \mathbb{N}}$ may not converge.
+The MVT guarantees convergence $p_n\to p$ to the unique fixed point of $g$.  The algorithm is the essence of simplicity, but depends heavily on the choice of contraction $g$.  If $g$ is not a contraction, the sequence $(p_n)_{n\in \mathbb{N}}$ may not converge.
 
-### Choosing the best $g$
+### Choosing the best $g$ for $\sqrt{2}$
 
 #### Choice \#1
 
@@ -80,15 +80,30 @@ The solution the **Babylonian method**, which uses $g\in C([1,2])$ given by $g(x
     1. **Set error, tolerance, and counter:** $0<e=$ error size, $N=$ number of iterations, $n=0$ counter initial value.
     2. **Choose initial estimate:** Choose $p_0\in [1,2]$.
     3. **Recursion (Babylonian method):** Let $\displaystyle p_1=g(p_0)=\frac{1}{2}\Bigl(p_0+\frac{2}{p_0}\Bigr)$
-        + If $|p_2-p_1|<e$, stop.  We have a good enough approximation in $p_2$.  ∏
+        + If $|p_2-p_1|<e$, stop.  We have a good enough approximation in $p_2$. 
         + If $n=N$, we stop without reaching a good enough approximation.
-        + Else, set $n=n+1$ and repeat this step.  
+        + Else, set $n=n+1$ and repeat this step, iii.  
 
 ## Newton's Method
 
 ### The Mathematical Basis
 
-Suppose we know that $f\in C^2[a,b]$ has a root $p\in [a,b]$ (for example by observing $f(a)f(b)<0$ and applying IVT). Take an initial guess $p_0\approx p$ in $[a,b]$, and expand $f$ into a quadratic Taylor polynomial about $x=p_0$,
+Suppose we know that $f\in C^2[a,b]$ has a root $p\in [a,b]$ (for example by observing $f(a)f(b)<0$ and applying IVT). Take an initial guess $p_0\approx p$ in $[a,b]$, and expand $f$ into a linear Taylor polynomial about $x=p_0$,
 
-$\displaystyle 0=f(p)=f(p_0)+f'(p_0)(p-p_0)+\frac{(p-p_0)^2}{2}f"(\xi(p))$
+$\displaystyle 0=f(p)\approx f(p_0)+f'(p_0)(p-p_0)
+\ \implies\ p\approx p_0-\frac{f(p_0)}{f'(p_0)}$
 
+Needless to say, we must require $f'(p)\neq 0$, since then $f'(x)\neq 0$ in a small neighborhood $\overline{V_\delta(p)}=[p-\delta,p+\delta]$ of $p$ (because $f'\in C^1([a,b])$).  The function 
+
+$g(x)=x-f(x)/f'(x)$[^1]
+
+is then continuous on $\overline{V_\delta(p)}$.  Its derivative
+
+$g'(x)=\frac{f(x)f"(x)}{f'(x)^2}$
+
+is continuous on $\overline{V_\delta(p)}$ and satisfies $g'(p)=0$.  Shrinking $\delta$ as needed, we can make sure that $\sup |g'|\leq k<1$ on $\overline{V_\delta(p)}$, and then use the Banach Fixed Point Theorem to guarantee convergence of the recursive sequence 
+
+$p_0\in [a,b]$\
+$p_{n+1}=g(p_n)$
+
+[^1]: In general (although we won't need this here) if $f'$ is complicated, we can replace it with its approximate value at $p_n$, $f'(p_n)\approx \frac{f(x)-f(p_n)}{x-p_n}$, so that $p_{n+1}=p_n-\frac{f(p_n)}{f'(p_n)}\approx \frac{f(p_n)(p_{n-1}-p_n)}{f(p_{n-1})-f(p_n)}$.
