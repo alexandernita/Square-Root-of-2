@@ -114,11 +114,11 @@ Moreover, $g'$ is increasing on $[1,2]$ because $g"(x)=\frac{2}{x^3}>0$, and $g'
 
 ### Newton's Method Algorithm
 
-* **Input:**  $\displaystyle g(x)=x-\frac{f(x)}{f'(x)}=x-\frac{x^2-2}{2x}$, $a=1$ and $b=2$.
+* **Input:**  $\displaystyle g(x)=\frac{x}{2}+\frac{1}{x}$, $a=1$ and $b=2$.
 
     1. **Set error, tolerance, and counter:** $0<e=$ error size, $N=$ number of iterations, $n=0$ counter initial value.
     2. **Choose initial estimate:** Choose $p_0\in [1,2]$.
-    3. **Recursion (Babylonian method):** Let $\displaystyle p_1=g(p_0)=\frac{1}{2}\Bigl(p_0+\frac{2}{p_0}\Bigr)$
+    3. **Recursion (Newton's method):** Let $\displaystyle p_1=g(p_0)=\frac{p_0}{2}+\frac{1}{p_0}$
         + If $|p_2-p_1|<e$, stop.  We have a good enough approximation in $p_2$. 
         + If $n=N$, we stop without reaching a good enough approximation.
         + Else, set $n=n+1$ and repeat this step, iii.  

@@ -70,7 +70,7 @@ NEWT = []
 
 for i in range(1,N):
     NEWT.append(p)
-    p = p - (p**2-2)/(2*p)
+    p = p/2+1/p
     if abs(p-q)<e:
         NEWT.append(p)
         break
