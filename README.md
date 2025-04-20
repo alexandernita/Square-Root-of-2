@@ -71,7 +71,7 @@ A similar problem occurs with $g(x) = 2/x$ on $[1,2]$. (Exercise!)
 
 #### Choice \#3: the Babylonian Method
 
-The solution the **Babylonian method**, which uses $g\in C([1,2])$ given by $g(x) = (x+2/x)/2$: this function satisfies $g([1,2])=[\sqrt{2}, 3/2] \subseteq [1,2]$, showing that it has a fixed point, and this fixed point is $\sqrt{2}$ since $p=g(p)$ means $p=(p+2/p)/2$, which simplifies to $p^2=2$. Moreover, $g$ is a contraction satisfying $|g'(x)| \leq 1/2 < 1$ Banach Fixed Point Theorem can also be used.  
+The solution is the **Babylonian method**, which uses $g\in C([1,2])$ given by $g(x) = (x+2/x)/2$: this function satisfies $g([1,2])=[\sqrt{2}, 3/2] \subseteq [1,2]$, showing that it has a fixed point, and this fixed point is $\sqrt{2}$ since $p=g(p)$ means $p=(p+2/p)/2$, which simplifies to $p^2=2$. Moreover, $g$ is a contraction satisfying $|g'(x)| \leq 1/2 < 1$, so the Banach Fixed Point Theorem also implies uniquness of $p$ and convergence of $(p_n)_{n\in\mathbb{N}}$.  
 
 ### The Fixed Point Algorithm
 
