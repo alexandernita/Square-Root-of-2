@@ -131,3 +131,42 @@ Let $(p_n)_{n\in \mathbb{N}}$ be a convergent sequence, $p_n\to p$ satisfying
 * $\lim_{n\to\infty}\frac{|p_{n+1}-p|}{|p_n-p|^\alpha}=\lambda>0$, $\alpha>0$ ($p_n$ **converges to $p$ of order $\alpha$**)
 
 Comparison of the three methods shows that the bisection algorithm takes much longer to converge than the Babylonian and Newton algorithms.  This is because the bisection algorithm can be shown to converge only *linearly* ($\alpha=1$), whereas the Babylonian and Newton algorithms converge *quadratically* ($\alpha=2$).  
+
+```
+                               The Square Root of 2
+
+                             Comparison of the Methods
+                ----------------------------------------------
+            Bisection             Babylonian              Newton's
+        ------------------------------------------------------------------
+
+           1.5000000000          1.0000000000            1.0000000000
+           1.2500000000          1.5000000000            1.5000000000
+           1.3750000000          1.4166666667            1.4166666667
+           1.4375000000          1.4142156863            1.4142156863
+           1.4062500000          1.4142135624            1.4142135624
+           1.4218750000          1.4142135624            1.4142135624
+           1.4140625000                          
+           1.4179687500                          
+           1.4160156250                          
+           1.4150390625                          
+           1.4145507812                          
+           1.4143066406                          
+           1.4141845703                          
+           1.4142456055                          
+           1.4142150879                          
+           1.4141998291                          
+           1.4142074585                          
+           1.4142112732                          
+           1.4142131805                          
+           1.4142141342                          
+           1.4142136574                          
+           1.4142134190                          
+           1.4142135382                          
+           1.4142135978                          
+           1.4142135680                          
+           1.4142135531                          
+           1.4142135605                          
+           1.4142135642                          
+           1.4142135624                          
+```
