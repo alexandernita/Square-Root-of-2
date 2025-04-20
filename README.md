@@ -122,3 +122,12 @@ Moreover, $g'$ is increasing on $[1,2]$ because $g"(x)=\frac{2}{x^3}>0$, and $g'
         + If $|p_2-p_1|<e$, stop.  We have a good enough approximation in $p_2$. 
         + If $n=N$, we stop without reaching a good enough approximation.
         + Else, set $n=n+1$ and repeat this step, iii.  
+
+
+## Error Analysis
+
+Let $(p_n)_{n\in \mathbb{N}}$ be a convergent sequence, $p_n\to p$ satisfying 
+* $p_n\neq p$ for all $n\in\mathbb{N}$
+* $\lim_{n\to\infty}\frac{|p_{n+1}-p|}{|p_n-p|^\alpha}=\lambda>0$, $\alpha>0$ ($p_n$ **converges to $p$ of order $\alpha$**)
+
+Comparison of the three methods shows that the bisection algorithm takes much longer to converge than the Babylonian and Newton algorithms.  This is because the bisection algorithm can be shown to converge only *linearly* ($\alpha=1$), whereas the Babylonian and Newton algorithms converge *quadratically* ($\alpha=2$).  
