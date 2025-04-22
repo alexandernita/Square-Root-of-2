@@ -1,8 +1,8 @@
 print("\n\t\t\t       The Square Root of 2")
-print("\n\t\t\t     Comparison of the Methods")
-print("\t\t----------------------------------------------")
-print("\t    Bisection   \t  Babylonian    \t  Newton's")
-print("\t------------------------------------------------------------------\n")
+print("\n\t\t\t     Comparison of the Methods\n")
+print("\t-----------------------------------------------------------------------")
+print("\t  n  \t    Bisection   \t  Babylonian    \t  Newton's")
+print("\t-----------------------------------------------------------------------\n")
     
 ###########################
 #  Bisection Method
@@ -80,9 +80,16 @@ for i in range(1,N):
 
 ###########################
 r = [len(BIS),len(BAB),len(NEWT)]    
-t = [BIS,BAB,NEWT]
 
 m = max(r)
+d = 0
+D = []
+
+for i in range(m+1):
+    d=d+1
+    D.append(d)
+
+t = [D,BIS,BAB,NEWT]
 
 if len(BIS)<m:
     l = len(BIS)
@@ -99,7 +106,7 @@ if len(NEWT)<m:
     for j in range(l+1,m+1):
         NEWT.append(0)
 
-for x, y, z in zip(BIS,BAB,NEWT):
-    print("\t   %.10f\t" % x,"\t",format(y, ".10f") if y else "",\
+for s, x, y, z in zip(D,BIS,BAB,NEWT):
+    print("\t  %d" % s,"\t   %.10f\t" % x,"\t",format(y, ".10f") if y else "",\
           "\t\t",format(z, ".10f") if z else "")
 
