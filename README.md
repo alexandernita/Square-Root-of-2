@@ -98,14 +98,14 @@ The solution is the **Babylonian method**, which uses $g\in C([1,2])$ given by $
 
 ### The Mathematical Basis
 
-Suppose we know that $f\in C^2[a,b]$ has a root $p\in [a,b]$ (for example by observing $f(a)f(b)<0$ and applying IVT). Take an initial guess $p_0\approx p$ in $[a,b]$, and expand $f$ into a linear Taylor polynomial about $x=p_0$,
+Suppose we know that $f\in C^2([a,b])$ has a root $p\in [a,b]$ (for example by observing $f(a)f(b)<0$ and applying IVT). Take an initial guess $p_0\approx p$ in $[a,b]$, and expand $f$ into a linear Taylor polynomial about $x=p_0$,
 
 $$
 \displaystyle 0=f(p)\approx f(p_0)+f'(p_0)(p-p_0)
 \ \implies\ p\approx p_0-\frac{f(p_0)}{f'(p_0)}
 $$
 
-Needless to say, we must require $f'(p)\neq 0$, since then $f'(x)\neq 0$ in a small neighborhood $\overline{V_\delta(p)}=[p-\delta,p+\delta]$ of $p$ (because $f'$ lies in $C^1([a,b])$).  The function 
+Needless to say, we must require $f'(p)\neq 0$, since then $f'(x)\neq 0$ in a small neighborhood $\overline{V_\delta(p)}=[p-\delta,p+\delta]$ of $p$, because $f'\in C^1([a,b])$.  The function 
 
 $$
 g(x)=x-\frac{f(x)}{f'(x)}
