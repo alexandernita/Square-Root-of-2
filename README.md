@@ -120,7 +120,7 @@ $$
 is continuous on $\overline{V_\delta(p)}$ and satisfies $g'(p)=0$.  Shrinking $\delta$ as needed, we can make sure that $\sup |g'|\leq k<1$ on $\overline{V_\delta(p)}$, and then use the Banach Fixed Point Theorem to guarantee convergence of the recursive sequence 
 
 $$
-\begin{algined}
+\begin{aligned}
 &p_0\in [a,b]\\
 &p_{n+1}=g(p_n)
 \end{aligned}
