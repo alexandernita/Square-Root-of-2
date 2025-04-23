@@ -105,7 +105,7 @@ $$
 \ \implies\ p\approx p_0-\frac{f(p_0)}{f'(p_0)}
 $$
 
-Needless to say, we must require $f'(p)\neq 0$, since then $f'(x)\neq 0$ in a small neighborhood $\overline{V_\delta(p)}=[p-\delta,p+\delta]$ of $p$ (because $f'\in C([a,b])$).  The function 
+Needless to say, we must require $f'(p)\neq 0$, since then $f'(x)\neq 0$ in a small neighborhood $\overline{V_\delta(p)}=[p-\delta,p+\delta]$ of $p$ (because $f'$ lies in $C^1([a,b])$).  The function 
 
 $$
 g(x)=x-\frac{f(x)}{f'(x)}
