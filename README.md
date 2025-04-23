@@ -124,6 +124,7 @@ $$
 &p_0\in [a,b]\\
 &p_{n+1}=g(p_n)
 \end{aligned}
+$$
 
 In our case, 
 
