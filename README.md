@@ -11,11 +11,15 @@ The **bisection algorithm** is based on the Intermediate Value Theorem (IVT) fro
 
 To use this theorem, we must choose a function $f$ which is continuous on a compact interval $[a,b]$ containing $x=\sqrt{2}$, the solution to $f(x)=0$.  From the definition of $\sqrt{2}$ we know 
 
-$(\sqrt{2})^2=2\ \Longleftrightarrow\ (\sqrt{2})^2-2=0$ 
+$$
+(\sqrt{2})^2=2\ \Longleftrightarrow\ (\sqrt{2})^2-2=0
+$$ 
 
 which demonstrates that the polynomial 
 
-$f(x)=x^2-2$ 
+$$
+f(x)=x^2-2
+$$ 
 
 has $x=\sqrt{2}$ as such a solution. Lastly, we need $[a,b]$ with $f(a)<0<f(b)$ or $f(a)>0>f(b)$.  Clearly $[1,2]$ serves this purpose.  
 
@@ -44,14 +48,20 @@ has $x=\sqrt{2}$ as such a solution. Lastly, we need $[a,b]$ with $f(a)<0<f(b)$ 
 
 The **fixed point method** requires $g\in C([a,b])$, as before, *and also* $g([a,b])\subseteq [a,b]$, because we are interested in finding a **fixed point** $p\in [a,b]$, satisfying $g(p)=p$.  The IVT can be use to show that such a $g$ has at least one fixed point:  If $g(a)=a$ or $g(b)=b$, we are done, we have a fixed point.  Otherwise, $a<g(a)$ and $g(b)<b$, in which case define 
 
-$h(x)=g(x)-x$ 
+$$
+h(x)=g(x)-x
+$$ 
 
 and observe that $h(b)<0<h(a)$.  IVT says $\exists p\in (a,b)$ with $h(p)=0$.  But $h(p)=0$ means $g(p)=p$.  
 
 If, *thirdly*, $\sup |g'|<1$ on $[a,b]$ (making $g$ what is called a **contraction**), then the Mean Value Theorem (MVT) implies uniqueness for the fixed point. (Exercise!)  The **Banach Fixed-Point Theorem** is the name given to this proposition.  An algorithm is got by starting with any initial guess $p_0$ and then *plugging* $p_n$ *back into* $g$ to get $p_{n+1}$,
 
-$p_0\in [a,b]$\
-$p_{n+1}=g(p_n)$
+$$
+\begin{aligned}
+&p_0\in [a,b]\\
+&p_{n+1}=g(p_n)
+\end{aligned}
+$$
 
 The MVT guarantees convergence $p_n\to p$ to the unique fixed point of $g$.  The algorithm is the essence of simplicity, but depends heavily on the choice of contraction $g$.  If $g$ is not a contraction, the sequence $(p_n)_{n\in \mathbb{N}}$ may not converge.
 
@@ -90,25 +100,36 @@ The solution is the **Babylonian method**, which uses $g\in C([1,2])$ given by $
 
 Suppose we know that $f\in C^2[a,b]$ has a root $p\in [a,b]$ (for example by observing $f(a)f(b)<0$ and applying IVT). Take an initial guess $p_0\approx p$ in $[a,b]$, and expand $f$ into a linear Taylor polynomial about $x=p_0$,
 
-$\displaystyle 0=f(p)\approx f(p_0)+f'(p_0)(p-p_0)
-\ \implies\ p\approx p_0-\frac{f(p_0)}{f'(p_0)}$
+$$
+\displaystyle 0=f(p)\approx f(p_0)+f'(p_0)(p-p_0)
+\ \implies\ p\approx p_0-\frac{f(p_0)}{f'(p_0)}
+$$
 
 Needless to say, we must require $f'(p)\neq 0$, since then $f'(x)\neq 0$ in a small neighborhood $\overline{V_\delta(p)}=[p-\delta,p+\delta]$ of $p$ (because $f'\in C^1([a,b])$).  The function 
 
-$g(x)=x-\frac{f(x)}{f'(x)}$
+$$
+g(x)=x-\frac{f(x)}{f'(x)}
+$$
 
 is then continuous on $\overline{V_\delta(p)}$.  Its derivative
 
-$g'(x)=\frac{f(x)f"(x)}{f'(x)^2}$
+$$
+g'(x)=\frac{f(x)f"(x)}{f'(x)^2}
+$$
 
 is continuous on $\overline{V_\delta(p)}$ and satisfies $g'(p)=0$.  Shrinking $\delta$ as needed, we can make sure that $\sup |g'|\leq k<1$ on $\overline{V_\delta(p)}$, and then use the Banach Fixed Point Theorem to guarantee convergence of the recursive sequence 
 
-$p_0\in [a,b]$\
-$p_{n+1}=g(p_n)$
+$$
+\begin{algined}
+&p_0\in [a,b]\\
+&p_{n+1}=g(p_n)
+\end{aligned}
 
 In our case, 
 
-$g(x)=x-\frac{f(x)}{f'(x)}=\frac{x}{2}+\frac{1}{x}\ \implies\ g'(x)=\frac{1}{2}-\frac{1}{x^2}$ 
+$$
+g(x)=x-\frac{f(x)}{f'(x)}=\frac{x}{2}+\frac{1}{x}\ \implies\ g'(x)=\frac{1}{2}-\frac{1}{x^2}
+$$ 
 
 Moreover, $g'$ is increasing on $[1,2]$ because $g"(x)=\frac{2}{x^3}>0$ there, while $g'(1)=-\frac{1}{2}$ and $g'(2)=\frac{1}{4}$, which shows that $\sup |g'|=\frac{1}{2}<1$.  Our $g$ is a contraction on $[1,2]$, hence it has a unique fixed point, $p=g(p)=\frac{p}{2}+\frac{1}{p}$, which is equivalent to $p^2=2$.
 
@@ -169,5 +190,5 @@ Comparison of the three methods shows that the bisection algorithm takes much lo
           26       1.4142135531                          
           27       1.4142135605                          
           28       1.4142135642                          
-          29       1.4142135624                          
+          29       1.4142135624                             
 ```
